@@ -1,6 +1,7 @@
 /*main container*/
 	.nicdark_give_form_grid .give-form-grid-content { 
 		padding: 30px; 
+        justify-content:flex-start !important
 	}
 	
 	/*percentage container*/

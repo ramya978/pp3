@@ -508,6 +508,76 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script type="text/javascript" src="assets/wp-content/plugins/elementor/assets/js/frontend.mine92f.js?ver=3.27.2" id="elementor-frontend-js"></script>
 <script type="text/javascript" src="assets/wp-content/plugins/elementor-pro/assets/js/elements-handlers.minb175.js?ver=3.27.0" id="pro-elements-handlers-js"></script>
 
+<script>
+const total = 6;
+let current = 0;
+const track = document.getElementById('sliderTrack');
+const counter = document.getElementById('counter');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+ 
+// Build dots in first slide footer
+const dotsContainer = document.getElementById('dots');
+for(let i=0;i<total;i++){
+  const d = document.createElement('button');
+  d.className='dot-inline'+(i===0?' active':'');
+  d.setAttribute('aria-label','Slide '+(i+1));
+  d.onclick=()=>goTo(i);
+  dotsContainer.appendChild(d);
+}
+ 
+function goTo(n){
+  current=n;
+  track.style.transform=`translateX(-${current*100}%)`;
+  counter.textContent=`${current+1} / ${total}`;
+  prevBtn.disabled=current===0;
+  nextBtn.disabled=current===total-1;
+  document.querySelectorAll('.dot-inline').forEach((d,i)=>{
+    d.classList.toggle('active',i===current);
+  });
+  // reset any open bios
+  document.querySelectorAll('.slide-bio').forEach(b=>{
+    b.classList.remove('expanded');
+    b.style.webkitLineClamp=7;
+  });
+  document.querySelectorAll('.read-more-btn').forEach(btn=>{
+    btn.classList.remove('expanded');
+    btn.childNodes[0].textContent='Read more ';
+  });
+}
+ 
+function move(dir){goTo(Math.max(0,Math.min(total-1,current+dir)))}
+ 
+// init state
+prevBtn.disabled=true;
+ 
+// swipe support
+let startX=0;
+track.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+track.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-startX;
+  if(Math.abs(dx)>50) move(dx<0?1:-1);
+});
+ 
+// keyboard
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') move(1);
+  if(e.key==='ArrowLeft') move(-1);
+});
+ 
+function toggleBio(btn){
+  const bio = btn.closest('.slide-content').querySelector('.slide-bio');
+  const expanded = btn.classList.toggle('expanded');
+  bio.classList.toggle('expanded',expanded);
+  if(expanded){
+    bio.style.webkitLineClamp='unset';
+    btn.childNodes[0].textContent='Show less ';
+  } else {
+    bio.style.webkitLineClamp=7;
+    btn.childNodes[0].textContent='Read more ';
+  }
+}
+</script>
 </body>
 
 </html>

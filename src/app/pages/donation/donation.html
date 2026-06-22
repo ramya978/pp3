@@ -98,192 +98,110 @@
                     <div class="elementor-widget-container">
                         <div class="elementor-shortcode"  style="    margin-top: 59px;
     margin-bottom: 49px;">
+<!-- Note: keep this section separate from the existing hero block above it.
+     The hero (heading + top GiveWP shortcode) stays untouched in the page;
+     this component renders ONLY the donation form section. -->
 
-                            <!-- Donation Form Box -->
-                            <div style="
-                                background: #ffffff;
-                                border-radius: 16px;
-                                padding: 40px 36px;
-                               max-width: 800px;
-                                margin: 0 auto;
-                                font-family: inherit;
-                            ">
-                                <h2 style="margin:0 0 6px 0;font-size:1.5em;color:#1a3a1a;">Make a Donation</h2>
-                                <p style="margin:0 0 24px 0;color:#555;font-size:0.95em;">Your contribution helps us plant trees, reduce carbon emissions, and empower communities.</p>
+<section class="pp-donate-section">
+  <div class="pp-donate-card">
 
-                                <!-- Amount Selector -->
-                                <p style="font-weight:600;margin-bottom:10px;color:#222;">Select Amount (INR)</p>
-                                <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;" id="pp-amount-grid">
-                                    <button onclick="ppSetAmount(500)"  class="pp-amt-btn" style="flex:1 1 calc(33% - 10px);padding:12px 0;border:2px solid #2e7d32;border-radius:8px;background:#fff;color:#2e7d32;font-weight:700;font-size:1em;cursor:pointer;">₹500</button>
-                                    <button onclick="ppSetAmount(1000)" class="pp-amt-btn" style="flex:1 1 calc(33% - 10px);padding:12px 0;border:2px solid #2e7d32;border-radius:8px;background:#fff;color:#2e7d32;font-weight:700;font-size:1em;cursor:pointer;">₹1,000</button>
-                                    <button onclick="ppSetAmount(2500)" class="pp-amt-btn" style="flex:1 1 calc(33% - 10px);padding:12px 0;border:2px solid #2e7d32;border-radius:8px;background:#fff;color:#2e7d32;font-weight:700;font-size:1em;cursor:pointer;">₹2,500</button>
-                                    <button onclick="ppSetAmount(5000)" class="pp-amt-btn" style="flex:1 1 calc(33% - 10px);padding:12px 0;border:2px solid #2e7d32;border-radius:8px;background:#fff;color:#2e7d32;font-weight:700;font-size:1em;cursor:pointer;">₹5,000</button>
-                                    <button onclick="ppSetAmount(10000)" class="pp-amt-btn" style="flex:1 1 calc(33% - 10px);padding:12px 0;border:2px solid #2e7d32;border-radius:8px;background:#fff;color:#2e7d32;font-weight:700;font-size:1em;cursor:pointer;">₹10,000</button>
-                                    <button onclick="ppSetAmount('custom')" class="pp-amt-btn" style="flex:1 1 calc(33% - 10px);padding:12px 0;border:2px solid #2e7d32;border-radius:8px;background:#fff;color:#2e7d32;font-weight:700;font-size:1em;cursor:pointer;">Other</button>
-                                </div>
+  
 
-                                <!-- Custom Amount -->
-                                <div id="pp-custom-box" style="display:none;margin-bottom:16px;">
-                                    <label style="font-weight:600;color:#222;display:block;margin-bottom:6px;">Enter Amount (₹)</label>
-                                    <input id="pp-custom-input" type="number" min="1" placeholder="Enter amount"
-                                        style="width:100%;padding:12px 14px;border:2px solid #ccc;border-radius:8px;font-size:1em;box-sizing:border-box;"
-                                        oninput="ppCustomAmount(this.value)"
-                                    >
-                                </div>
+    <!-- ============ MAIN FORM STATE ============ -->
+    <div class="pp-donate-grid" >
 
-                                <!-- Name -->
-                                <div style="margin-bottom:14px;">
-                                    <label style="font-weight:600;color:#222;display:block;margin-bottom:6px;">Full Name *</label>
-                                    <input id="pp-name" type="text" placeholder="Your full name"
-                                        style="width:100%;padding:12px 14px;border:2px solid #ccc;border-radius:8px;font-size:1em;box-sizing:border-box;">
-                                </div>
+      <!-- LEFT: Scanner / QR panel -->
+      <div class="pp-scan-panel">
+       <img src="assets/images/people_planets/donate/D11.jpg" alt="scanner">
+      </div>
 
-                                <!-- Email -->
-                                <div style="margin-bottom:14px;">
-                                    <label style="font-weight:600;color:#222;display:block;margin-bottom:6px;">Email Address *</label>
-                                    <input id="pp-email" type="email" placeholder="your@email.com"
-                                        style="width:100%;padding:12px 14px;border:2px solid #ccc;border-radius:8px;font-size:1em;box-sizing:border-box;">
-                                </div>
+      <!-- RIGHT: Donation form -->
+      <div class="pp-form-panel">
+        <h2 class="pp-form-title">Make a Donation</h2>
+        <p class="pp-form-subtitle">
+          Your contribution helps us plant trees, reduce carbon emissions, and empower communities.
+        </p>
 
-                                <!-- Phone -->
-                                <div style="margin-bottom:14px;">
-                                    <label style="font-weight:600;color:#222;display:block;margin-bottom:6px;">Phone Number</label>
-                                    <input id="pp-phone" type="tel" placeholder="+91 XXXXX XXXXX"
-                                        style="width:100%;padding:12px 14px;border:2px solid #ccc;border-radius:8px;font-size:1em;box-sizing:border-box;">
-                                </div>
+        <!-- Amount selector -->
+        <label class="pp-label">Select Amount (INR)</label>
+        <div class="pp-amount-grid">
+          <button
+            type="button"
+            *ngFor="let amt of amounts"
+            class="pp-amt-btn"
+            [class.active]="!isCustom && selectedAmount === amt"
+            (click)="selectAmount(amt)"
+          >₹{{ amt.toLocaleString('en-IN') }}</button>
 
-                                <!-- 80G Checkbox -->
-                                <div style="margin-bottom:20px;display:flex;align-items:center;gap:10px;">
-                                    <input id="pp-80g" type="checkbox" style="width:18px;height:18px;accent-color:#2e7d32;">
-                                    <label for="pp-80g" style="color:#444;font-size:0.93em;">I would like an 80G tax exemption certificate</label>
-                                </div>
+          <button
+            type="button"
+            class="pp-amt-btn"
+            [class.active]="isCustom"
+            (click)="selectCustom()"
+          >Other</button>
+        </div>
 
-                                <!-- Error Message -->
-                                <div id="pp-error" style="display:none;color:#c0392b;margin-bottom:14px;font-size:0.93em;padding:10px;background:#fdecea;border-radius:6px;"></div>
+        <!-- Custom amount -->
+        <div class="pp-field" *ngIf="isCustom">
+          <label class="pp-label">Enter Amount (₹)</label>
+          <input
+            type="number"
+            min="1"
+            placeholder="Enter amount"
+            class="pp-input"
+            [ngModel]="customAmount"
+            (ngModelChange)="onCustomAmountChange($event)"
+          >
+        </div>
 
-                                <!-- Selected Amount Display -->
-                                <div id="pp-selected-display" style="display:none;margin-bottom:16px;padding:12px 16px;background:#e8f5e9;border-radius:8px;color:#2e7d32;font-weight:700;font-size:1.05em;">
-                                    Donating: <span id="pp-display-amt"></span>
-                                </div>
+    
 
-                                <!-- Donate Button -->
-                                <button
-                                    onclick="ppPay()"
-                                    id="pp-donate-btn"
-                                    style="
-                                        width:100%;
-                                        padding:16px;
-                                        background:#2e7d32;
-                                        color:#fff;
-                                        border:none;
-                                        border-radius:8px;
-                                        font-size:1.1em;
-                                        font-weight:700;
-                                        cursor:pointer;
-                                        letter-spacing:0.5px;
-                                        transition:background 0.2s;
-                                    "
-                                    onmouseover="this.style.background='#1b5e20'"
-                                    onmouseout="this.style.background='#2e7d32'"
-                                >
-                                    🌱 Donate Now
-                                </button>
+        <!-- Name -->
+        <div class="pp-field">
+          <label class="pp-label">Full Name *</label>
+          <input type="text" class="pp-input" placeholder="Your full name" [(ngModel)]="name">
+        </div>
 
-                                <p style="margin-top:14px;text-align:center;font-size:0.82em;color:#888;">
-                                    Secured by Razorpay &nbsp;|&nbsp; 80G Tax Benefit Available &nbsp;|&nbsp; All contributions support Peoples Planet's environmental programs.
-                                </p>
-                            </div>
+        <!-- Email -->
+        <div class="pp-field">
+          <label class="pp-label">Email Address *</label>
+          <input type="email" class="pp-input" placeholder="your@email.com" [(ngModel)]="email">
+        </div>
 
-                            <!-- Razorpay Script -->
-                            <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-                            <script>
-                                var ppAmount = 0;
+        <!-- Phone -->
+        <div class="pp-field">
+          <label class="pp-label">Phone Number</label>
+          <input type="tel" class="pp-input" placeholder="+91 XXXXX XXXXX" [(ngModel)]="phone">
+        </div>
 
-                                function ppSetAmount(val) {
-                                    var customBox = document.getElementById('pp-custom-box');
-                                    var btns = document.querySelectorAll('.pp-amt-btn');
-                                    btns.forEach(function(b){ b.style.background='#fff'; b.style.color='#2e7d32'; });
+        <!-- 80G checkbox -->
+        <!-- <div class="pp-checkbox-row">
+          <input type="checkbox" id="pp-80g" [(ngModel)]="wants80G">
+          <label for="pp-80g">I would like an 80G tax exemption receipt</label>
+        </div> -->
 
-                                    if (val === 'custom') {
-                                        customBox.style.display = 'block';
-                                        ppAmount = 0;
-                                        document.getElementById('pp-selected-display').style.display = 'none';
-                                        event.target.style.background = '#2e7d32';
-                                        event.target.style.color = '#fff';
-                                    } else {
-                                        customBox.style.display = 'none';
-                                        ppAmount = val;
-                                        document.getElementById('pp-selected-display').style.display = 'block';
-                                        document.getElementById('pp-display-amt').innerText = '₹' + val.toLocaleString('en-IN');
-                                        event.target.style.background = '#2e7d32';
-                                        event.target.style.color = '#fff';
-                                    }
-                                    document.getElementById('pp-error').style.display = 'none';
-                                }
+        <!-- Error -->
+        <div class="pp-error" *ngIf="errorMsg">{{ errorMsg }}</div>
 
-                                function ppCustomAmount(val) {
-                                    ppAmount = parseInt(val) || 0;
-                                    if (ppAmount > 0) {
-                                        document.getElementById('pp-selected-display').style.display = 'block';
-                                        document.getElementById('pp-display-amt').innerText = '₹' + ppAmount.toLocaleString('en-IN');
-                                    } else {
-                                        document.getElementById('pp-selected-display').style.display = 'none';
-                                    }
-                                }
+        <!-- Submit -->
+        <button
+          type="button"
+          class="pp-donate-btn"
+          [disabled]="isProcessing"
+          (click)="pay()"
+        >
+          {{ isProcessing ? 'Processing...' : 'Donate Now' }}    {{ displayAmount }}
+        </button>
 
-                                function ppShowError(msg) {
-                                    var el = document.getElementById('pp-error');
-                                    el.innerText = msg;
-                                    el.style.display = 'block';
-                                }
+        <!-- <p class="pp-footnote">
+          Secured by Razorpay &nbsp;|&nbsp; 80G Tax Benefit Available &nbsp;|&nbsp;
+          All contributions support Peoples Planet's environmental programs.
+        </p> -->
+      </div>
 
-                                function ppPay() {
-                                    var name  = document.getElementById('pp-name').value.trim();
-                                    var email = document.getElementById('pp-email').value.trim();
-                                    var phone = document.getElementById('pp-phone').value.trim();
-                                    document.getElementById('pp-error').style.display = 'none';
-
-                                    if (!ppAmount || ppAmount < 1) { ppShowError('Please select or enter a donation amount.'); return; }
-                                    if (!name)  { ppShowError('Please enter your full name.'); return; }
-                                    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { ppShowError('Please enter a valid email address.'); return; }
-
-                                    var options = {
-                                        key: 'rzp_live_YOUR_KEY_HERE', // ← Replace with your Razorpay live key
-                                        amount: ppAmount * 100,
-                                        currency: 'INR',
-                                        name: "Peoples Planet",
-                                        description: "Environmental Conservation Donation",
-                                        image: "https://static.wixstatic.com/media/5d820f_cc9780bcdd4a44d7bfffa0c5c09d639af000.jpg",
-                                        prefill: {
-                                            name:    name,
-                                            email:   email,
-                                            contact: phone.replace(/\s+/g, '')
-                                        },
-                                        notes: {
-                                            wants_80g: document.getElementById('pp-80g').checked ? 'Yes' : 'No'
-                                        },
-                                        theme: { color: '#2e7d32' },
-                                        handler: function(response) {
-                                            document.getElementById('pp-donate-btn').style.display = 'none';
-                                            var box = document.querySelector('.elementor-shortcode > div');
-                                            box.innerHTML = '<div style="text-align:center;padding:40px 20px;">'
-                                                + '<div style="font-size:3em;">🌱</div>'
-                                                + '<h2 style="color:#2e7d32;margin:16px 0 8px;">Thank You, ' + name + '!</h2>'
-                                                + '<p style="color:#444;">Your donation of <strong>₹' + ppAmount.toLocaleString('en-IN') + '</strong> has been received.</p>'
-                                                + '<p style="color:#666;font-size:0.9em;">Payment ID: ' + response.razorpay_payment_id + '</p>'
-                                                + '<p style="color:#555;margin-top:16px;">Together we are making the planet greener. 🌍</p>'
-                                                + '</div>';
-                                        },
-                                        modal: { ondismiss: function(){} }
-                                    };
-
-                                    var rzp = new Razorpay(options);
-                                    rzp.on('payment.failed', function(r){
-                                        ppShowError('Payment failed: ' + r.error.description);
-                                    });
-                                    rzp.open();
-                                }
-                            </script>
+    </div>
+  </div>
+</section>
 
                         </div>
                     </div>
@@ -294,6 +212,36 @@
 </div>
 
 </div>
+
+
+
+
+  <!-- ============ SUCCESS POPUP ============ -->
+  <div class="pp-modal-overlay" *ngIf="successData" (click)="resetForm()">
+    <div class="pp-modal pp-modal-success" (click)="$event.stopPropagation()">
+      <button class="pp-modal-close" (click)="resetForm()">&times;</button>
+      <!-- <div class="pp-success-icon">🌱</div> -->
+      <h2>Thank You, {{ successData.name }}!</h2>
+      <p class="pp-success-text">
+        Your donation of <strong>₹{{ successData.amount.toLocaleString('en-IN') }}</strong> has been received.
+      </p>
+      <p class="pp-success-id">Payment ID: {{ successData.paymentId }}</p>
+      <p class="pp-success-footer">Together we are making the planet greener.</p>
+      <button class="pp-btn-outline" (click)="resetForm()">Make Another Donation</button>
+    </div>
+  </div>
+
+  <!-- ============ FAILURE POPUP ============ -->
+  <div class="pp-modal-overlay" *ngIf="failData" (click)="closeFail()">
+    <div class="pp-modal pp-modal-fail" (click)="$event.stopPropagation()">
+      <button class="pp-modal-close" (click)="closeFail()">&times;</button>
+      <!-- <div class="pp-fail-icon">⚠️</div> -->
+      <h2>Payment Failed</h2>
+      <p class="pp-fail-text">{{ failData.message }}</p>
+      <p class="pp-fail-footer">No amount has been deducted. Please try again.</p>
+      <button class="pp-btn-solid" (click)="closeFail()">Try Again</button>
+    </div>
+  </div>
 
 
 

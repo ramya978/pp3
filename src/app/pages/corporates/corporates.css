@@ -11,7 +11,7 @@
     --column-gap: 20px;
     --overflow: hidden;
     --overlay-opacity: 0.9;
-    border-style: solid;
+    /* border-style: solid; */
     --border-style: solid;
     border-width: 0px 20px 0px 20px;
     --border-top-width: 0px;
@@ -3692,7 +3692,7 @@ body.rtl .elementor-147 .elementor-element.elementor-element-3e0a530a {
 
 
 .image_card{
-        width: 160px;
+        /* width: 160px; */
     height: 160px;
 }
 .image_card img{

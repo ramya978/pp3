@@ -1,0 +1,17 @@
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+@media (max-width:1024px) {
+  .elementor-nav-menu .sub-arrow{
+      fill: white;
+  }
+}
+
+p{
+    text-align: justify;
+}

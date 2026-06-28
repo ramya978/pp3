@@ -4,13 +4,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />		
-    <title>PeoplePlanets1</title>
+    <title>People's Planet</title>
   <base href="/">
 <meta name='robots' content='max-image-preview:large' />
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 <link rel="alternate" type="application/rss+xml" title="Homeless DEMO &raquo; Feed" href="feed/index.html" />
 <link rel="alternate" type="application/rss+xml" title="Homeless DEMO &raquo; Comments Feed" href="comments/feed/index.html" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 <script type="text/javascript">
 /* <![CDATA[ */
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/donation.nicdark.com\/homeless-wordpress-theme\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
@@ -575,6 +577,38 @@ function toggleBio(btn){
   } else {
     bio.style.webkitLineClamp=7;
     btn.childNodes[0].textContent='Read more ';
+  }
+}
+</script>
+
+
+  <script>
+    function toggle(btn) {
+      const item = btn.closest('.acc-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.acc-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+<script>
+function toggle(btn){
+  var item=btn.closest('.acc-item');
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(function(i){
+    i.classList.remove('open');
+    i.querySelector('.acc-btn').setAttribute('aria-expanded','false');
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
   }
 }
 </script>

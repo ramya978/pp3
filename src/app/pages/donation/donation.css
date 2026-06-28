@@ -11,7 +11,7 @@
     --column-gap: 80px;
     --overflow: hidden;
     --overlay-opacity: 0.9;
-    border-style: solid;
+    /* border-style: solid; */
     --border-style: solid;
     border-width: 0px 20px 0px 20px;
     --border-top-width: 0px;
@@ -392,7 +392,7 @@ body.rtl .elementor-157 .elementor-element.elementor-element-4f78aac5 {
     --row-gap: 0px;
     --column-gap: 0px;
     --overflow: hidden;
-    border-style: solid;
+    /* border-style: solid; */
     --border-style: solid;
     border-width: 0px 20px 0px 20px;
     --border-top-width: 0px;
@@ -981,7 +981,7 @@ body.rtl .elementor-157 .elementor-element.elementor-element-4f78aac5 {
     --row-gap: 0px;
     --column-gap: 0px;
     --overflow: hidden;
-    border-style: solid;
+    /* border-style: solid; */
     --border-style: solid;
     border-width: 0px 20px 0px 20px;
     --border-top-width: 0px;
@@ -2444,7 +2444,7 @@ body:not(.rtl) .elementor-157 .elementor-element.elementor-element-40078803.elem
     --column-gap: 80px;
     --overflow: hidden;
     --overlay-opacity: 0.9;
-    border-style: solid;
+    /* border-style: solid; */
     --border-style: solid;
     border-width: 0px 20px 0px 20px;
     --border-top-width: 0px;
@@ -2825,7 +2825,7 @@ body.rtl .elementor-157 .elementor-element.elementor-element-4f78aac5 {
     --row-gap: 0px;
     --column-gap: 0px;
     --overflow: hidden;
-    border-style: solid;
+    /* border-style: solid; */
     --border-style: solid;
     border-width: 0px 20px 0px 20px;
     --border-top-width: 0px;
@@ -5093,11 +5093,11 @@ color: var(--e-global-color-4f4b866) !important;
 
 /* Error */
 .pp-error {
-  color: #c0392b;
+  color: red;
   margin-bottom: 16px;
   font-size: 0.9em;
-  padding: 12px 14px;
-  background: #fdecea;
+  /* padding: 12px 14px; */
+  /* background: #fdecea; */
   border-radius: 8px;
 }
 
@@ -5171,7 +5171,7 @@ color: var(--e-global-color-4f4b866) !important;
   border: 2px solid  var(--e-global-color-ebbf1d8) !important;;
   background: transparent;
 color: var(--e-global-color-4f4b866) !important;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -5286,7 +5286,7 @@ color: var(--e-global-color-4f4b866) !important;
   border: none;
   background: #c0392b;
   color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s ease;
@@ -5319,3 +5319,16 @@ color: var(--e-global-color-4f4b866) !important;
   }
 }
  
+
+ /* Remove number input spinner arrows (Chrome, Safari, Edge, Opera) */
+.pp-input::-webkit-outer-spin-button,
+.pp-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input spinner arrows (Firefox) */
+.pp-input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

@@ -1,0 +1,482 @@
+/* ═══════════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════════ */
+.toast-wrapper {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.toast-wrapper.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  min-width: 280px;
+  max-width: 360px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
+.toast-success { background: #1a7a52; }
+.toast-error   { background: #c0392b; }
+
+.toast-icon svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toast-text {
+  flex: 1;
+  /* line-height: 1.4; */
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.toast-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.toast-close:hover { color: #fff; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER BASE
+═══════════════════════════════════════════════ */
+.site-footer {
+  background-color: #111111;
+  color: #ccc;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  margin-top: 0;
+}
+
+.footer-shape {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+
+.footer-shape svg {
+  width: 100%;
+  height: 62px;
+  display: block;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 32px;
+}
+
+/* ═══════════════════════════════════════════════
+   TOP: BRAND + NEWSLETTER
+═══════════════════════════════════════════════ */
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  flex: 1 1 260px;
+}
+
+.brand-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+}
+
+.brand-tagline {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ─── Newsletter Form ─── */
+.footer-newsletter {
+  flex: 1 1 360px;
+  max-width: 460px;
+}
+
+/* Email input container */
+.input-group {
+  margin-bottom: 14px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 2px solid #555;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.email-input::placeholder {
+  color: #888;
+}
+
+.email-input:focus {
+  border-color: #4ecb8d;
+}
+
+/* Red border on error — matches image */
+.email-input.input-error {
+  border-color: #e05555;
+}
+
+/* Error message row — matches image exactly */
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  padding-left: 4px;
+  font-size: 13px;
+  color: #e05555;
+}
+
+.error-msg em {
+  font-style: normal;
+}
+
+.error-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Consent row: checkbox left, button right */
+.consent-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Custom checkbox label */
+.consent-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #cccccc;
+  user-select: none;
+  position: relative;
+}
+
+.consent-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Custom checkmark box */
+.checkmark {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #777;
+  border-radius: 3px;
+  background: transparent;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.consent-label input[type="checkbox"]:checked + .checkmark {
+  background: #4ecb8d;
+  border-color: #4ecb8d;
+}
+
+.consent-label input[type="checkbox"]:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* Consent error highlight */
+.checkmark.checkmark-error {
+  border-color: #e05555;
+}
+
+/* SIGN UP button — teal pill (matches image) */
+.signup-btn {
+  padding: 11px 30px;
+  /* border-radius: 50px; */
+  border: none;
+  background:var( --e-global-color-4f4b866 );
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 42px;
+}
+
+.signup-btn:hover:not(:disabled) {
+  background: white;
+  color: var( --e-global-color-4f4b866 );
+  transform: translateY(-1px);
+}
+
+.signup-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner inside button */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Inline success — matches image text */
+.success-inline {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #4ecb8d;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════ */
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 36px;
+}
+
+/* ═══════════════════════════════════════════════
+   BOTTOM: 3-COLUMN GRID
+═══════════════════════════════════════════════ */
+.footer-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.col-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 14px;
+  letter-spacing: 0.3px;
+}
+
+.col-text {
+  font-size: 13.5px;
+  color: #999;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+/* Phone block */
+.contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phone-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4ecb8d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phone-icon svg {
+  width: 17px;
+  height: 17px;
+  color: #fff;
+}
+
+.phone-label {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.phone-number {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+/* Info / Contact links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #999;
+}
+
+.footer-links li a,
+.footer-links li span {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+  color: #4ecb8d;
+}
+
+.chevron-icon {
+  width: 7px;
+  height: 12px;
+  color: #4ecb8d;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   COPYRIGHT
+═══════════════════════════════════════════════ */
+.footer-copyright {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-copyright p {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .footer-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-newsletter {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .consent-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .signup-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+
+
+/* Full-bleed fix: forces the footer to span the entire viewport width,
+   even if a parent wrapper (body / app-root / page container) has
+   max-width or side padding that's squeezing it inward. */
+
+.elementor-location-footer {
+    max-width: 100%;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    background: var(--e-global-color-a0fe96f);
+    /* padding-left: 46px;
+    padding-top: 39px; */
+}
+
+/* Prevent horizontal scrollbar caused by the 100vw trick
+   (100vw includes the scrollbar width on some browsers) */
+html, body {
+  overflow-x: hidden;
+}

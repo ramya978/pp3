@@ -10,7 +10,7 @@
         data-element_type="container"
         data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
     >
-        <div class="e-con-inner">
+        <div class="e-con-inner" >
             <div
                 class="elementor-element elementor-element-2e475d43 e-con-full e-flex elementor-invisible e-con e-child"  
                 data-id="2e475d43"
@@ -33,9 +33,6 @@
                     data-element_type="widget"
                     data-widget_type="heading.default"
                 >
-                    <!-- <div class="elementor-widget-container">
-                        <h5 class="elementor-heading-title elementor-size-default">Charity Donation WordPress Theme</h5>
-                    </div> -->
                 </div>
             </div>
             <div
@@ -68,7 +65,7 @@
         </div>
     </div>
     <div class="elementor-element elementor-element-491caf34 e-flex e-con-boxed e-con e-parent" data-id="491caf34" data-element_type="container">
-        <div class="e-con-inner">
+        <div class="e-con-inner" style="padding-top: 43px;">
             <div class="elementor-element elementor-element-764ecaf e-con-full e-flex e-con e-child" data-id="764ecaf" data-element_type="container" style="flex-direction: column;">
                 <div
                     class="elementor-element elementor-element-2ff9d4fc e-con-full e-flex e-con e-child"
@@ -106,7 +103,6 @@
       <div class="vol-block-image vol-block-image-wide">
         <img src="assets/images/people_planets/volunteer/V13.jpg" alt="Planting trees to restore ecosystems">
       </div>
-      <!-- <p class="vol-caption"><span class="vol-dot"></span>Planting Trees to Restore Ecosystems</p> -->
     </div>
   </div>
 
@@ -116,7 +112,6 @@
       <div class="vol-block-image">
         <img src="assets/images/people_planets/volunteer/V14.jpg" alt="Volunteer group with plants">
       </div>
-      <!-- <p class="vol-caption"><span class="vol-dot"></span>Planting Trees to Restore Ecosystems</p> -->
     </div>
 
     <div class="vol-form-panel">
@@ -139,36 +134,28 @@
         others to take action and create a brighter, greener future for generations to come.
       </p>
 
-      <!-- ===== Success message ===== -->
-      <div class="vol-success" *ngIf="submitted">
-        <div class="vol-success-icon">✅</div>
-        <h3>Thank you for signing up!</h3>
-        <p>We've received your details and will get in touch with you shortly.</p>
-        <button type="button" class="vol-link-btn" (click)="resetForm()">Submit another response</button>
-      </div>
-
-      <!-- ===== Form ===== -->
-      <form class="vol-form" *ngIf="!submitted" (ngSubmit)="onSubmit()">
+      <!-- ===== Form (always visible now - popup handles result) ===== -->
+      <form class="vol-form" (ngSubmit)="onSubmit()">
 
         <div class="vol-form-row">
           <div class="vol-field">
             <label class="vol-label">First name *</label>
-            <input type="text" class="vol-input" [(ngModel)]="form.firstName" name="firstName" placeholder="">
+            <input type="text" class="vol-input" [(ngModel)]="form.firstName" name="firstName" placeholder="" maxlength="150">
           </div>
           <div class="vol-field">
             <label class="vol-label">Last name *</label>
-            <input type="text" class="vol-input" [(ngModel)]="form.lastName" name="lastName" placeholder="">
+            <input type="text" class="vol-input" [(ngModel)]="form.lastName" name="lastName" placeholder="" maxlength="150">
           </div>
         </div>
 
         <div class="vol-form-row">
           <div class="vol-field">
             <label class="vol-label">Email *</label>
-            <input type="email" class="vol-input" [(ngModel)]="form.email" name="email" placeholder="">
+            <input type="email" class="vol-input" [(ngModel)]="form.email" name="email" placeholder=""  maxlength="254">
           </div>
           <div class="vol-field">
             <label class="vol-label">Phone *</label>
-            <input type="tel" class="vol-input" [(ngModel)]="form.phone" name="phone" placeholder="">
+            <input type="tel" class="vol-input" [(ngModel)]="form.phone" name="phone" placeholder="" maxlength="10">
           </div>
         </div>
 
@@ -184,7 +171,7 @@
           <label class="vol-label">Message *</label>
           <textarea
             class="vol-input vol-textarea"
-            rows="4"
+            rows="4"  maxlength="254"
             [(ngModel)]="form.message"
             name="message"
             placeholder="Tell us why you'd like to volunteer..."
@@ -193,7 +180,10 @@
 
         <div class="vol-error" *ngIf="errorMsg">{{ errorMsg }}</div>
 
-        <button type="submit" class="vol-submit-btn">Submit</button>
+        <button type="submit" class="vol-submit-btn" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Submit</span>
+          <span *ngIf="isSubmitting">Submitting...</span>
+        </button>
       </form>
     </div>
   </div>
@@ -205,3 +195,13 @@
         </div>
      
     </div>
+
+<!-- ===== Toast Notification (Success / Error) ===== -->
+<div class="vol-toast" *ngIf="showToast" [ngClass]="{'vol-toast-success': toastType === 'success', 'vol-toast-error': toastType === 'error'}">
+  <div class="vol-toast-icon">
+    {{ toastType === 'success' ? '&#10003;' : '&#10007;' }}
+  </div>
+  <span class="vol-toast-message">{{ toastMessage }}</span>
+  <button type="button" class="vol-toast-close" (click)="closeToast()">&times;</button>
+</div>
+</div>

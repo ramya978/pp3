@@ -8,7 +8,7 @@ declare var Razorpay: any;
   selector: 'app-donation',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './donation.html',
+  templateUrl:'./donation.html',
   styleUrl: './donation.css',
 })
 export class DonationComponent {

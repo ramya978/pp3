@@ -19,11 +19,11 @@ export const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'home',component:HomeComponent},
 
-    {path:'donation',component:DonationComponent},
+    {path:'donate',component:DonationComponent},
     {path:'projects',component:ProjectsComponent},
-    {path:'zero',component:ZeroComponent},
-    {path:'volunteer',component:VolunteerComponent},
-    {path:'peoples',component:PeoplesComponent},
+    {path:'netzero',component:ZeroComponent},
+    {path:'get-involved',component:VolunteerComponent},
+    {path:'thepeople',component:PeoplesComponent},
     {path:'corporates',component:CorporatesComponent},
     {path:'missionmilliontrees',component:MissionmilliontreesComponent},
     {path:'zerowaste',component:ZerowasteComponent},
@@ -31,7 +31,7 @@ export const routes: Routes = [
     {path:'livelihood',component:LivelihoodComponent},
     {path:'farmerfirst',component:FarmerfirstComponent},
     {path:'about',component:AboutComponent},
-    {path:'csr',component:CsrComponent}
+    {path:'companies',component:CsrComponent}
 
 
 

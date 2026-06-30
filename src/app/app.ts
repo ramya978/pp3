@@ -155,6 +155,16 @@ export class App {
     }, 4000);
   }
  
+  openFacebook(): void {
+    const fbUrl = 'https://www.facebook.com/share/1F6uwU7pRH/?mibextid=wwXIfr';
+    window.location.href = fbUrl;
+  }
+
+  openInstagram(): void {
+    const igUrl = 'https://www.instagram.com/peoplesplanetin?igsh=Ymx5NGF0dXQ3bjMx';
+    window.location.href = igUrl;
+  }
+
   closeToast(): void {
     this.showToast = false;
     if (this.toastTimeout) {

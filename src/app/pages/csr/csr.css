@@ -32,7 +32,7 @@
 
 .elementor-147 .elementor-element.elementor-element-12ba848f:not(.elementor-motion-effects-element-type-background), .elementor-147 .elementor-element.elementor-element-12ba848f > .elementor-motion-effects-container > .elementor-motion-effects-layer {
     background-image: url("/assets/images/people_planets/csr/cs1.jpg");
-    background-position: center center;
+    background-position:  top;
     background-repeat: no-repeat;
     background-size: cover;
 }

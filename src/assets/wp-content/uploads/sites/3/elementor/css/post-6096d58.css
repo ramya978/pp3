@@ -89,11 +89,11 @@
   > .elementor-motion-effects-layer::before {
   background-color: transparent;
   --background-overlay: '';
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     at center center,
     var(--e-global-color-10a94b3) 0%,
     var(--e-global-color-a0fe96f) 100%
-  );
+  ); */
 }
 .elementor-609 .elementor-element.elementor-element-1e5bf654 {
   --display: flex;

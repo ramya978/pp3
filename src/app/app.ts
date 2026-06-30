@@ -12,6 +12,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class App {
   private readonly NEWSLETTER_API = 'https://ascendingsoftware.com/api/emailSubscription.php';
+
+  // Check if the given route is the current active page
+  isActive(route: string): boolean {
+    return window.location.pathname === '/' + route || 
+           window.location.pathname === '/' + route + '/' ||
+           (route === 'home' && (window.location.pathname === '/' || window.location.pathname === ''));
+  }
  
   // Form fields
   newsletterEmail = '';

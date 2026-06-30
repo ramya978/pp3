@@ -15,3 +15,14 @@ html, body {
 p{
     text-align: justify;
 }
+
+/* Header navigation active menu item color */
+.elementor-nav-menu--main .elementor-item.elementor-item-active {
+    color: var(--e-global-color-445bfed) !important;
+}
+
+.elementor-nav-menu--dropdown .elementor-item.elementor-item-active {
+    color: var(--e-global-color-445bfed) !important;
+    background-color: transparent !important;
+}
+

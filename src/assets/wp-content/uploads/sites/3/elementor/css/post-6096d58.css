@@ -6102,7 +6102,7 @@ display: none;
     --width: 100%;
   }
   .elementor-609 .elementor-element.elementor-element-9220462 {
-    --width: 100%;
+    --width:336px;
   }
   .elementor-609 .elementor-element.elementor-element-56ff931 {
     --width: 100%;
@@ -6118,5 +6118,12 @@ display: none;
   }
   .elementor-609 .elementor-element.elementor-element-1ac2876a {
     --width: 100%;
+  }
+}
+
+
+@media (max-width:1024px) {
+   .elementor-609 .elementor-element.elementor-element-9220462 {
+    --width:336px;
   }
 }

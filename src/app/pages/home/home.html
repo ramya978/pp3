@@ -4,6 +4,39 @@
   Content & images: replaced with peoplesplanet.in data
 -->
 
+<style>
+    
+@media (max-width:1151px) {
+  .give-wrap .give-grid--2, .give-wrap .give-grid--3, .give-wrap .give-grid--4{
+          display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    }
+}
+
+
+
+@media (max-width:837px) {
+  .give-wrap .give-grid--2, .give-wrap .give-grid--3, .give-wrap .give-grid--4{
+          display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:766px) {
+    #mobilePlanet{
+                display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (max-width:1024px) {
+    #herocontact{
+           max-width: 100% !important;
+    }
+}
+</style>
+
+
 <div
     data-elementor-type="wp-page"
     data-elementor-id="609"
@@ -98,7 +131,7 @@
                 >
 
                 
-                    <div
+                    <div style="    max-width: 300px;" id="herocontact"
                         class="elementor-element elementor-element-426abdf6 e-con-full e-flex elementor-invisible e-con e-child"
                         data-id="426abdf6"
                         data-element_type="container"
@@ -110,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    <div
+                    <div style="    max-width: 300px;" id="herocontact"
                         class="elementor-element elementor-element-542b1ab e-con-full e-flex elementor-invisible e-con e-child"
                         data-id="542b1ab"
                         data-element_type="container"
@@ -239,7 +272,7 @@
                                                     <div class="give-form-grid-content">
                                                         <h3 class="give-form-grid-content__title">Plant a Tree</h3>
                                                         <p class="give-form-grid-content__text">Support our reforestation drives that have planted 745,000 trees in 2024-25. Every tree you sponsor brings us closer to a greener planet.</p>
-                                                        <button style="text-decoration-color: #000000"><span style="color: #000000">Donate</span></button>
+                                                        <button style="text-decoration-color: #000000"><span style="color: #000000">Sponsor a Tree</span></button>
                                                     </div>
                                                   
                                                 </div>
@@ -262,7 +295,7 @@
                                                     <div class="give-form-grid-content">
                                                         <h3 class="give-form-grid-content__title">Net Zero Future</h3>
                                                         <p class="give-form-grid-content__text">We've helped reduce 345 million tonnes of carbon emissions through our renewable energy and climate programs. Be part of the solution.</p>
-                                                        <button style="text-decoration-color: #000000"><span style="color: #000000">Donate</span></button>
+                                                        <button style="text-decoration-color: #000000"><span style="color: #000000">Support the Mission</span></button>
                                                     </div>
                                                  
                                                 </div>
@@ -275,8 +308,8 @@
                                         <a id="give-card-1460" class="give-card" href="donation">
                                             <div class="give-form-grid" style="flex-direction:column">
                                                 <div class="give-form-grid-media">
-                                                    <div class="give-card__media">
-                                                        <img loading="lazy" decoding="async" width="300" height="200"
+                                                    <div class="give-card__media" style="    height: 280px;">
+                                                        <img loading="lazy" decoding="async" width="300" height="200" style="    height: 100%;"
                                                             src="https://static.wixstatic.com/media/8bbf32_8d52dfaa3d7b4e54a5157cde9a556b3a~mv2.jpeg/v1/fill/w_600,h_400,fp_0.33_0.14,q_90,enc_avif,quality_auto/8bbf32_8d52dfaa3d7b4e54a5157cde9a556b3a~mv2.jpeg"
                                                             alt="Community Programs">
                                                     </div>
@@ -285,7 +318,7 @@
                                                     <div class="give-form-grid-content">
                                                         <h3 class="give-form-grid-content__title">Empower Communities</h3>
                                                         <p class="give-form-grid-content__text">Reaching 20 communities with sustainable development programs in energy efficiency, water conservation, and environmental education.</p>
-                                                        <button style="text-decoration-color: #000000"><span style="color: #000000">Donate</span></button>
+                                                        <button style="text-decoration-color: #000000"><span style="color: #000000">Support Now</span></button>
                                                     </div>
                                                  
                                                 </div>
@@ -396,25 +429,25 @@
                         <!-- Icon Card: Reforestation -->
                         <div class="elementor-element elementor-element-2601aa08 e-con-full e-flex e-con e-child" data-id="2601aa08" data-element_type="container">
                             <div class="elementor-element elementor-element-1b8d6253 elementor-widget elementor-widget-image" data-id="1b8d6253" data-element_type="widget" data-widget_type="image.default">
-                                <div class="elementor-widget-container"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/Reforestration.png" class="attachment-large size-large wp-image-1879" alt=""></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/Reforestration.png" class="attachment-large size-large wp-image-1879" alt=""></div>
                             </div>
                             <div class="elementor-element elementor-element-157dfd12 elementor-widget elementor-widget-heading" data-id="157dfd12" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">Reforestation</h4></div>
+                                <div class="elementor-widget-container"id="mobilePlanet" ><h4 class="elementor-heading-title elementor-size-default">Reforestation</h4></div>
                             </div>
                             <div class="elementor-element elementor-element-778f557f elementor-widget elementor-widget-heading" data-id="778f557f" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><p class="elementor-heading-title elementor-size-default">Sponsoring tree planting drives to restore forests and green our communities.</p></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><p class="elementor-heading-title elementor-size-default">Sponsoring tree planting drives to restore forests and green our communities.</p></div>
                             </div>
                         </div>
                         <!-- Icon Card: Net Zero -->
                         <div class="elementor-element elementor-element-1bcdb81f e-con-full e-flex e-con e-child" data-id="1bcdb81f" data-element_type="container">
                             <div class="elementor-element elementor-element-4ee99e1b elementor-widget elementor-widget-image" data-id="4ee99e1b" data-element_type="widget" data-widget_type="image.default">
-                                <div class="elementor-widget-container"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/NetZero.png" class="attachment-large size-large wp-image-1880" alt=""></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/NetZero.png" class="attachment-large size-large wp-image-1880" alt=""></div>
                             </div>
                             <div class="elementor-element elementor-element-4d1b0d7f elementor-widget elementor-widget-heading" data-id="4d1b0d7f" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">Net Zero</h4></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><h4 class="elementor-heading-title elementor-size-default">Net Zero</h4></div>
                             </div>
                             <div class="elementor-element elementor-element-1a598a3b elementor-widget elementor-widget-heading" data-id="1a598a3b" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><p class="elementor-heading-title elementor-size-default">Achieving net zero through clean energy, carbon offset, and sustainable practices.</p></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><p class="elementor-heading-title elementor-size-default">Achieving net zero through clean energy, carbon offset, and sustainable practices.</p></div>
                             </div>
                         </div>
                     </div>
@@ -422,25 +455,25 @@
                         <!-- Icon Card: CSR -->
                         <div class="elementor-element elementor-element-44a42501 e-con-full e-flex e-con e-child" data-id="44a42501" data-element_type="container">
                             <div class="elementor-element elementor-element-26b00b8 elementor-widget elementor-widget-image" data-id="26b00b8" data-element_type="widget" data-widget_type="image.default">
-                                <div class="elementor-widget-container"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/CSR.png" class="attachment-large size-large wp-image-1881" alt=""></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/CSR.png" class="attachment-large size-large wp-image-1881" alt=""></div>
                             </div>
                             <div class="elementor-element elementor-element-3bad0ffd elementor-widget elementor-widget-heading" data-id="3bad0ffd" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">CSR Programs</h4></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><h4 class="elementor-heading-title elementor-size-default">CSR Programs</h4></div>
                             </div>
                             <div class="elementor-element elementor-element-34b463dd elementor-widget elementor-widget-heading" data-id="34b463dd" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><p class="elementor-heading-title elementor-size-default">Partnering with corporates to deliver measurable environmental impact at scale.</p></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><p class="elementor-heading-title elementor-size-default">Partnering with corporates to deliver measurable environmental impact at scale.</p></div>
                             </div>
                         </div>
                         <!-- Icon Card: Volunteer -->
                         <div class="elementor-element elementor-element-4948d0d1 e-con-full e-flex e-con e-child" data-id="4948d0d1" data-element_type="container">
                             <div class="elementor-element elementor-element-359c7bb1 elementor-widget elementor-widget-image" data-id="359c7bb1" data-element_type="widget" data-widget_type="image.default">
-                                <div class="elementor-widget-container"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/Volunteer.png" class="attachment-large size-large wp-image-1882" alt="" style="    width: 93px;"></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><img loading="lazy" decoding="async" width="250" height="250" src="assets/images/Volunteer.png" class="attachment-large size-large wp-image-1882" alt="" style="    width: 93px;"></div>
                             </div>
                             <div class="elementor-element elementor-element-676a01d8 elementor-widget elementor-widget-heading" data-id="676a01d8" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">Volunteer</h4></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><h4 class="elementor-heading-title elementor-size-default">Volunteer</h4></div>
                             </div>
                             <div class="elementor-element elementor-element-3aae1555 elementor-widget elementor-widget-heading" data-id="3aae1555" data-element_type="widget" data-widget_type="heading.default">
-                                <div class="elementor-widget-container"><p class="elementor-heading-title elementor-size-default">Join hands with passionate people working toward a sustainable, greener future.</p></div>
+                                <div class="elementor-widget-container" id="mobilePlanet"><p class="elementor-heading-title elementor-size-default">Join hands with passionate people working toward a sustainable, greener future.</p></div>
                             </div>
                         </div>
                     </div>

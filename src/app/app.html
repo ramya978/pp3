@@ -11,7 +11,7 @@
         id="nd_top_header"
         data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
     >
-        <div class="elementor-element elementor-element-69f9f7c6 e-con-full e-flex e-con e-child" data-id="69f9f7c6" data-element_type="container">
+        <!-- <div class="elementor-element elementor-element-69f9f7c6 e-con-full e-flex e-con e-child" data-id="69f9f7c6" data-element_type="container">
             <div
                 class="elementor-element elementor-element-6523fa7a elementor-icon-list--layout-inline elementor-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
                 data-id="6523fa7a"
@@ -52,9 +52,9 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div
-            class="elementor-element elementor-element-2c393383 e-con-full e-flex e-con e-child"
+            class="elementor-element elementor-element-2c393383 e-con-full e-flex e-con e-child" style="    width: 100%;"
             data-id="2c393383"
             data-element_type="container"
             data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"
@@ -121,8 +121,8 @@
                 data-widget_type="image.default"
             >
                 <div class="elementor-widget-container">
-                    <a href="https://donation.nicdark.com/homeless-wordpress-theme">
-                    <h4 style="color: white;">People's Planet</h4>
+                    <a href="home">
+                        <img src="assets/images/people_planets/logo.png" alt="" style="    width: 250px;">
                     </a>
                 </div>
             </div>
@@ -139,40 +139,40 @@
                     <nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
                         <ul id="menu-1-79e4e045" class="elementor-nav-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-609 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1918">
-                                <a href="home" aria-current="page" class="elementor-item elementor-item-active">Home</a>
+                                <a href="home" class="elementor-item" [class.elementor-item-active]="isActive('home')">Home</a>
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1427">
-                                <a href="projects" class="elementor-item">Projects & Programs</a>
-                              
+                                <a href="projects" class="elementor-item" [class.elementor-item-active]="isActive('projects')">Projects & Programs</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1409">
-                                <a href="volunteer" class="elementor-item">Volunteer</a>
-                              
+                                <a href="volunteer" class="elementor-item" [class.elementor-item-active]="isActive('volunteer')">Volunteer</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1407">
-                                <a href="csr" class="elementor-item">CSR</a>
+                                <a href="csr" class="elementor-item" [class.elementor-item-active]="isActive('csr')">CSR</a>
                                 <ul class="sub-menu elementor-nav-menu--dropdown">
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1400">
                                         <a href="corporates" class="elementor-sub-item">corporates</a>
-                                     
+                                      
                                     </li>
-                                  
+                                   
                                 </ul>
                             </li>
 
                               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1409">
-                                <a href="peoples" class="elementor-item">Peoples</a>
-                              
+                                <a href="peoples" class="elementor-item" [class.elementor-item-active]="isActive('peoples')">Peoples</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1411">
-                                <a href="zero" class="elementor-item">Reforestation</a>
-                              
+                                <a href="zero" class="elementor-item" [class.elementor-item-active]="isActive('zero')">Reforestation</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1388">
-                                <a href="donation" class="elementor-item">Donate</a>
-                             
+                                <a href="donation" class="elementor-item" [class.elementor-item-active]="isActive('donation')">Donate</a>
+                              
                             </li>
-                      
+                       
                         </ul>
                     </nav>
                     <div
@@ -204,40 +204,40 @@
                     <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
                          <ul id="menu-1-79e4e045" class="elementor-nav-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-609 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1918">
-                                <a href="home" aria-current="page" class="elementor-item elementor-item-active">Home</a>
+                                <a href="home" class="elementor-item" [class.elementor-item-active]="isActive('home')">Home</a>
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1427">
-                                <a href="projects" class="elementor-item">Projects & Programs</a>
-                              
+                                <a href="projects" class="elementor-item" [class.elementor-item-active]="isActive('projects')">Projects & Programs</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1409">
-                                <a href="volunteer" class="elementor-item">Volunteer</a>
-                              
+                                <a href="volunteer" class="elementor-item" [class.elementor-item-active]="isActive('volunteer')">Volunteer</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1407">
-                                <a href="#" class="elementor-item">CSR</a>
+                                <a href="csr" class="elementor-item" [class.elementor-item-active]="isActive('csr')">CSR</a>
                                 <ul class="sub-menu elementor-nav-menu--dropdown">
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1400">
                                         <a href="corporates" class="elementor-sub-item">corporates</a>
-                                     
+                                      
                                     </li>
-                                  
+                                   
                                 </ul>
                             </li>
 
                               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1409">
-                                <a href="peoples" class="elementor-item">Peoples</a>
-                              
+                                <a href="peoples" class="elementor-item" [class.elementor-item-active]="isActive('peoples')">Peoples</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1411">
-                                <a href="zero" class="elementor-item">reforestation</a>
-                              
+                                <a href="zero" class="elementor-item" [class.elementor-item-active]="isActive('zero')">Reforestation</a>
+                               
                             </li>
                             <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1388">
-                                <a href="donation" class="elementor-item">Donate</a>
-                             
+                                <a href="donation" class="elementor-item" [class.elementor-item-active]="isActive('donation')">Donate</a>
+                              
                             </li>
-                      
+                       
                         </ul>
                     </nav>
                 </div>
@@ -350,7 +350,7 @@
                             src="assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-1024x62.png"
                             class="attachment-large size-large wp-image-21"
                             alt=""
-                            srcset="https://donation.nicdark.com/homeless-wordpress-theme/assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-1024x62.png 1024w, https://donation.nicdark.com/homeless-wordpress-theme/assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-300x18.png 300w, https://donation.nicdark.com/homeless-wordpress-theme/assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-768x46.png 768w, https://donation.nicdark.com/homeless-wordpress-theme/assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-1536x93.png 1536w, https://donation.nicdark.com/homeless-wordpress-theme/assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-600x36.png 600w, https://donation.nicdark.com/homeless-wordpress-theme/assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black.png 1920w"
+                            srcset="assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-1024x62.png 1024w, assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-300x18.png 300w, assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-768x46.png 768w, assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-1536x93.png 1536w, assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black-600x36.png 600w, assets/wp-content/uploads/sites/3/2025/01/shape-top-white-bottom-black.png 1920w"
                             sizes="(max-width: 1024px) 100vw, 1024px"
                         >
                     </div>
@@ -358,7 +358,7 @@
             </div>
             <div class="elementor-element elementor-element-15d629b5 e-con-full e-flex e-con e-child" data-id="15d629b5" data-element_type="container">
                 <div class="elementor-element elementor-element-71c0ea1c e-con-full e-flex e-con e-child" data-id="71c0ea1c" data-element_type="container">
-                    <div
+                    <div style="gap: 0;"
                         class="elementor-element elementor-element-5e7db124 e-con-full e-flex elementor-invisible e-con e-child"
                         data-id="5e7db124"
                         data-element_type="container"
@@ -371,7 +371,7 @@
                             data-widget_type="heading.default"
                         >
                             <div class="elementor-widget-container">
-                                <h2 class="elementor-heading-title elementor-size-default">People's Planet</h2>
+                        <img src="assets/images/people_planets/logo.png" alt="" style="    width: 300px;">
                             </div>
                         </div>
                         <div
@@ -381,7 +381,7 @@
                             data-widget_type="heading.default"
                         >
                             <div class="elementor-widget-container">
-                                <p class="elementor-heading-title elementor-size-default">Together, we can rebuild lives and restore dignity.</p>
+                                <p class="elementor-heading-title elementor-size-default">Humanity Meets Sustainability.</p>
                             </div>
                         </div>
                     </div>
@@ -671,11 +671,11 @@
                             </div>
                         </div>
                     </div>
-             <div class="copyright" style="display: flex;justify-content: space-between;flex-wrap: wrap;align-items: center;">
+             <div class="copyright" style="display: flex;justify-content: space-between;flex-wrap: wrap;align-items: center;padding-bottom: 30px;border-top: 1px solid rgba(128, 128, 128, 0.342);padding-top: 30px;">
                       <p style="color: white;">peoples planet © All rights reserved</p>  
-                     <a href="https://ascendingsoftware.com/">
-                         <p  style="color: white;">Developed by Ascening Software</p>
-                     </a>
+                    
+                         <p  style="color: white;">Developed by  <a href="https://ascendingsoftware.com/" style="color: white;">&nbsp;Ascending Software</a></p>
+                    
              </div>
                 </div>
                 

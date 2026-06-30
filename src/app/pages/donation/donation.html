@@ -142,7 +142,7 @@
     </div>
  
     <!-- Cover transaction fees checkbox -->
-    <div class="pp-checkbox-row" *ngIf="selectedAmount() && selectedAmount()! >= 1500">
+    <div class="pp-checkbox-row" *ngIf="selectedAmount() && selectedAmount()! >= 550">
       <input
         type="checkbox"
         id="pp-cover-fee"
@@ -165,7 +165,7 @@
       (click)="pay()"
     >
       {{ isProcessing() ? 'Processing...' : 'Donate Now' }}
-      <span *ngIf="selectedAmount() && selectedAmount()! >= 1500">{{ displayAmount() }}</span>
+      <span *ngIf="selectedAmount() && selectedAmount()! >= 550">{{ displayAmount() }}</span>
     </button>
  
   </div>

@@ -12,13 +12,13 @@ declare var Razorpay: any;
   styleUrl: './donation.css',
 })
 export class DonationComponent {
-  amounts: number[] = [1500, 2500, 5000, 10000];
+  amounts: number[] = [550, 1500, 2500, 5000, 10000];
 
   // ── Signals (state) ──────────────────────────────────────────
   // Signals automatically tell Angular "something changed, re-render".
   // This works even when the value is set from OUTSIDE Angular's zone
   // (like Razorpay's callback), so we don't need NgZone at all.
-  selectedAmount = signal<number | null>(1500);
+  selectedAmount = signal<number | null>(550);
   isCustom = signal(false);
   customAmount = signal<number | null>(null);
   coverFee = signal(true);
@@ -37,7 +37,7 @@ export class DonationComponent {
   private readonly FEE_RATE = 0.029; // 2.9% transaction fee
 
   // Razorpay test/live key - replace with your actual key
-  private readonly RAZORPAY_KEY = 'rzp_test_T4FCjEOGW8kDvb';
+  private readonly RAZORPAY_KEY = 'rzp_live_S2V5cFyfLJZZz1';
 
   // ── Computed signals (derived state) ─────────────────────────
   feeAmount = computed(() => {
@@ -56,7 +56,7 @@ export class DonationComponent {
 
   canCoverFee = computed(() => {
     const amt = this.selectedAmount();
-    return !!amt && amt >= 1500;
+    return !!amt && amt >= 550;
   });
 
   displayAmount = computed(() => {
@@ -67,7 +67,7 @@ export class DonationComponent {
 
   ngOnInit(): void {
     this.loadRazorpayScript();
-    this.selectedAmount.set(1500);
+    this.selectedAmount.set(550);
     this.coverFee.set(true);
   }
 
@@ -135,8 +135,8 @@ export class DonationComponent {
       this.errorMsg.set("Enter the amount you'd like to donate.");
       return false;
     }
-    if (amt < 1500) {
-      this.errorMsg.set('We only take donations from ₹1,500.');
+    if (amt < 550) {
+      this.errorMsg.set('Minimum donation is ₹550.');
       return false;
     }
     return true;
@@ -209,7 +209,7 @@ export class DonationComponent {
   resetForm(): void {
     this.successData.set(null);
     this.failData.set(null);
-    this.selectedAmount.set(1500);
+    this.selectedAmount.set(550);
     this.isCustom.set(false);
     this.customAmount.set(null);
     this.coverFee.set(true);
